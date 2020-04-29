@@ -24,8 +24,7 @@ pipeline {
          }
         stage ('Build Image') {
             steps {
-                sh 'docker rmi $(docker images -a -q)'
-                sh 'docker build -t testdeploy .' 
+                    sh 'docker build -t testdeploy .' 
             }
         }
     }
