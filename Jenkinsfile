@@ -1,16 +1,16 @@
 pipeline {
-    agent any
+    agent {label 'aws_slave'}
     tools {
-        maven 'Maven 3.3.9'
-        jdk 'jdk8'
+        maven 'maven'
+        jdk 'java'
     }
+    options {
+    skipDefaultCheckout(true)
+}
     stages {
-        stage ('Initialize') {
+        stage ('Checkout') {
             steps {
-                sh '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
-                '''
+                
             }
         }
 
