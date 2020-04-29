@@ -24,7 +24,8 @@ pipeline {
          }
         stage ('Build Image') {
             steps {
-                sh 'mvn -Dmaven.test.failure.ignore=true install' 
+                sh 'docker rmi $(docker images -a -q)'
+                sh 'docker build -t testdeploy .' 
             }
         }
     }
