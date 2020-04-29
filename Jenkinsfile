@@ -10,7 +10,10 @@ pipeline {
     stages {
         stage ('Checkout') {
             steps {
-                
+                checkout changelog: false, poll: false, 
+                    scm: [$class: 'GitSCM', branches: [[name: '*/master']], 
+                          doGenerateSubmoduleConfigurations: false, extensions: [], 
+                          submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git', url: 'https://github.com/Mahi51/testproject.git']]]
             }
         }
 
