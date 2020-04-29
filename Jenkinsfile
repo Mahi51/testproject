@@ -17,11 +17,15 @@ pipeline {
             }
         }
 
-        stage ('Build') {
+        stage ('Build Artifact') {
             steps {
                 sh 'mvn -Dmaven.test.failure.ignore=true install' 
             }
-           
+         }
+        stage ('Build Image') {
+            steps {
+                sh 'mvn -Dmaven.test.failure.ignore=true install' 
+            }
         }
     }
 }
