@@ -30,6 +30,7 @@ pipeline {
          stage ('Deploy Image') {
             steps {
                     sh 'docker  container create --publish 8080:8080 --name devopsdemo testdeploy' 
+                    sh 'docker start devopsdemo'
             }
         }
     }
