@@ -27,5 +27,10 @@ pipeline {
                     sh 'docker build -t testdeploy .' 
             }
         }
+         stage ('Deploy Image') {
+            steps {
+                    sh 'docker run -i -t --publish 8080:8080 devopsdemo testdeploy' 
+            }
+        }
     }
 }
